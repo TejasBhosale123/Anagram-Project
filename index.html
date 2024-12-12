@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title> Anagram Checker App</title>
+        <style>
+            *{
+                font-size: 40px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            body{
+                background-color: beige;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1> Anagram Checker App</h1>
+            <form onsubmit="check()">
+
+                <input type="text" id="string1" placeholder="Enter First String"/>
+                <br/><br/>
+                <input type="text" id="string2" placeholder="Enter Second String"/>
+                <br/><br/>
+                <input type="submit" value="Check"/>
+
+            </form>
+            <h2 id="msg"></h2>
+
+            <script>
+
+                function check(){
+                    event.preventDefault();
+
+                    let string1 =  document.getElementById("string1")
+                    let string2 =  document.getElementById("string2")
+                    let msg = document.getElementById("msg")
+
+                    if(string1.value === ""){
+                    alert("Enter First String!");
+                    msg.innerHTML = "";
+                    string1.focus();
+                    return;
+                    }
+
+                    if(string2.value === ""){
+                    alert("Enter Second String!");
+                    msg.innerHTML = "";
+                    string2.focus();
+                    return;
+                    }
+
+
+                    let org_str_1 = string1.value;
+                    let org_str_2 = string2.value;
+                    let sot_str_1 = org_str_1.split("").sort().join("").toLowerCase();
+                    let sot_str_2 = org_str_2.split("").sort().join("").toLowerCase();
+
+                    if(sot_str_1 === sot_str_2){
+                        msg.innerHTML = "Yes it is a Aragram string"
+                    }
+                    else{
+                        msg.innerHTML = "No it is not a Aragram string"
+                    }
+                }
+            </script>
+        </center>
+    </body>
+</html>
